@@ -1,0 +1,58 @@
+{
+  "name": "vue-cli-plugin-loader",
+  "version": "0.1.0",
+  "module": "./src/index.js",
+  "description": "Vue plugin for a global loader controller",
+  "main": "./src/index.js",
+  "scripts": {
+    "build": "vue-cli-service build --target lib --name vue-cli-plugin-loader ./src/index.js",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.4.1",
+    "@vue/cli-plugin-eslint": "~4.4.1",
+    "@vue/cli-service": "~4.4.1",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.1.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-vue": "^6.2.2",
+    "lint-staged": "^10.2.7",
+    "prettier": "^2.0.5",
+    "sass": "^1.19.0",
+    "sass-loader": "^8.0.0",
+    "vue-cli-plugin-vuetify": "~2.0.5",
+    "vue-template-compiler": "^2.6.11",
+    "vuetify-loader": "^1.3.0"
+  },
+  "homepage": "https://github.com/Enkel-Digital/vue-cli-plugin-loader#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Enkel-Digital/vue-cli-plugin-loader.git"
+  },
+  "keywords": [
+    "fetch",
+    "firebase",
+    "auth",
+    "jwt",
+    "token"
+  ],
+  "author": "JJ",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Enkel-Digital/vue-cli-plugin-loader/issues"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  }
+}
