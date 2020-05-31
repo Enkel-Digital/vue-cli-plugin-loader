@@ -11,10 +11,9 @@
       @todo
       right now top-level loader is masked behind the ErrorDialog
       ErrorDialog have a "202" z-index so we must use "203" for overlay
-      
-      Size 64 is in px ~ around 4em
     -->
-    <v-overlay v-if="showFullLoader" :value="true" :z-index="6">
+    <v-overlay v-if="showFullLoader" :value="true" :z-index="fullLoaderZIndex">
+      <!-- Size 64 is in px ~ around 4em -->
       <v-progress-circular indeterminate size="64" />
     </v-overlay>
 
@@ -24,7 +23,7 @@
       Using height attribute of "4" to match the default height of v-progress-linear
       Set height to be the same to prevent showing extra spaces beneath the progress bar.
     -->
-    <v-system-bar app v-else-if="showTopLoader" :height="4">
+    <v-system-bar app v-else-if="showTopLoader" :height="topLoaderHeight">
       <v-progress-linear indeterminate absolute top />
     </v-system-bar>
   </span>
@@ -32,6 +31,8 @@
 
 <script>
 /**
+ * Example loader using vuetify
+ *
  * Global loader/loading component to show loading status.
  * Can be used by any component/module to indicate loading in progress.
  * Prevents duplicate implementation
@@ -45,14 +46,34 @@
  * The full screen overlay loader have priority over the top level linear loader
  * But by default show loading requests shows the top level linear loader
  */
+export default {
+  name: "loader",
+  props: {
+    fullLoaderZIndex: {
+      type: Number,
+      default: 6,
+    },
+    topLoaderHeight: {
+      type: Number,
+      default: 4,
+    },
+  },
+  computed: {
+    // Cant do this because, this is bounded to the computed object {}
+    // showFullLoader: this.$loader.showFullLoader,
+    // showTopLoader: this.$loader.showTopLoader,
 
-// import loaderController from "./loaderController.js";
+    // Using controller attached to global Vue, Vue needs to be imported in this component
+    // showFullLoader: Vue.$loader.showFullLoader,
+    // showTopLoader: Vue.$loader.showTopLoader,
 
-// export default {
-//   name: "defaultLoader",
-//   computed: {
-//     showFullLoader: loaderController.showFullLoader,
-//     showTopLoader: loaderController.showTopLoader,
-//   },
-// };
+    // wrap it inside functions to access "this" vue instance injected in
+    showFullLoader() {
+      return this.$loader.showFullLoader();
+    },
+    showTopLoader() {
+      return this.$loader.showTopLoader();
+    },
+  },
+};
 </script>

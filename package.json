@@ -1,12 +1,15 @@
 {
   "name": "vue-cli-plugin-loader",
-  "version": "0.1.0",
-  "module": "./src/index.js",
+  "version": "0.2.2",
   "description": "Vue plugin for a global loader controller",
   "main": "./src/index.js",
+  "files": [
+    "src/"
+  ],
   "scripts": {
     "build": "vue-cli-service build --target lib --name vue-cli-plugin-loader ./src/index.js",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "publish": "git stash --include-untracked && npm publish && git stash apply"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -35,11 +38,10 @@
     "url": "git+https://github.com/Enkel-Digital/vue-cli-plugin-loader.git"
   },
   "keywords": [
-    "fetch",
-    "firebase",
-    "auth",
-    "jwt",
-    "token"
+    "vue",
+    "plugin",
+    "vue-plugin",
+    "loader"
   ],
   "author": "JJ",
   "license": "MIT",
