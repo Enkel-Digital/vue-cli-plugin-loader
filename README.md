@@ -3,7 +3,7 @@
 - Example/Reference on how loaderRequest object would look like
     ```js
     const loaderRequestReference = {
-    fullScreen: true // Bool value to determine what type of loader to show
+        fullScreen: true // Bool value to determine what type of loader to show
     };
     ```
 

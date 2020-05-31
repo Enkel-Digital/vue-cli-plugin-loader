@@ -1,7 +1,6 @@
 {
   "name": "vue-cli-plugin-loader",
-  "version": "0.2.0",
-  "module": "./src/index.js",
+  "version": "0.2.1",
   "description": "Vue plugin for a global loader controller",
   "main": "./src/index.js",
   "scripts": {
