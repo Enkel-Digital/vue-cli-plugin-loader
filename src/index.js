@@ -1,4 +1,4 @@
-import loaderControllerFF from "./loaderControllerFF";
+import loaderController from "./loaderController";
 
 // Export plugin object as default export
 const LoaderPlugin = {
@@ -14,9 +14,6 @@ const LoaderPlugin = {
       // ? options.customLoader
       // : () => import("./defaultLoader.vue")
     );
-
-    // Use the factory function to create a new loaderController
-    const loaderController = loaderControllerFF(Vue);
 
     // Attach loaderController to Vue class/module for vuex and other "non vue component" modules
     Vue.$loader = loaderController;
